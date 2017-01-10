@@ -91,6 +91,7 @@ def cut_potatoes
     print "Cut potato #{counter}"
     print_progress_bar
 end
+end
 
 def add_potatoes_to_pan
   for counter in  1..NUM_POTATOES
@@ -106,15 +107,23 @@ def break_eggs
   print "Break egg #{counter}"
   print_progress_bar
 end
+end
 
-def ready
-  puts "Are you ready for the next step? (Y/N)"
-  answer = gets.chomp.upcase
+def ask_ready(step, index)
+  puts "Are you ready for step #{index + 1}?\n(#{step[:description]})"
+  answer = gets.chomp
 
-  if answer == "Y"
-    puts "Well done, then we go to the next step!"
-    break
-  else
-    puts "Press \"Y\" when you are ready"
-  end
+  answer.upcase == 'Y'
+end
+
+steps.each_with_index do |step, index|
+print_divider
+  loop do
+    ready = ask_ready(step, index)
+  break if ready
+
+      puts "Take your time"
+      print_progress_bar
+    end
+    send(step[:action])
 end
