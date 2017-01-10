@@ -69,3 +69,40 @@ puts "Lets see how we can make this Spanish omelette. Follow these steps: "
 steps.each_with_index do |step, index|
   puts (index + 1).to_s + ") " + step[:description]
 end
+
+def generic_recipe_step
+  puts "On it!"
+  print_progress_bar
+end
+
+def scrape_potatoes
+  counter = 0
+  while counter < NUM_POTATOES
+    counter += 1
+    print "Scrape potato #{counter}"
+    print_progress_bar
+  end
+end
+
+def cut_potatoes
+  counter = 0
+  while counter < NUM_POTATOES
+    counter += 1
+    print "Cut potato #{counter}"
+    print_progress_bar
+end
+
+def add_potatoes_to_pan
+  for counter in  1..NUM_POTATOES
+    print "Add potato #{counter} to pan"
+    print_progress_bar
+  end
+end
+
+def break_eggs
+  counter = 0
+  while counter < NUM_EGGS
+  counter += 1
+  print "Break egg #{counter}"
+  print_progress_bar
+end
