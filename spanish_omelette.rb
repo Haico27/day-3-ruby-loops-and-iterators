@@ -106,3 +106,15 @@ def break_eggs
   print "Break egg #{counter}"
   print_progress_bar
 end
+
+def ready
+  puts "Are you ready for the next step? (Y/N)"
+  answer = gets.chomp.upcase
+
+  if answer == "Y"
+    puts "Well done, then we go to the next step!"
+    break
+  else
+    puts "Press \"Y\" when you are ready"
+  end
+end
